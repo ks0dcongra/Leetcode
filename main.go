@@ -3,32 +3,44 @@ package main
 import "fmt"
 
 func main() {
-    nums := []int{2,7,11,15}
-    target := 9
-    fmt.Println(twoSum(nums, target))
+	s := "()"
+    
+	fmt.Println(isValid(s))
 
-    nums = []int{3,2,4}
-    target = 6
-    fmt.Println(twoSum(nums, target))
+    s = "()[]{}"
+    
+	fmt.Println(isValid(s))
 
-    nums = []int{3,3}
-    target = 6
-    fmt.Println(twoSum(nums, target))
+    s = "[]"
+    
+	fmt.Println(isValid(s))
+
+    s = "["
+    
+	fmt.Println(isValid(s))
 }
 
-func twoSum(nums []int, target int) []int {
-    tempMap := make(map[int]int)
-
-    var resolution []int
-    for i := range nums {
-        another := target - nums[i]
- 
-        if _, exists := tempMap[another]; exists {
-            resolution = []int{tempMap[another], i}
-            break
-        } 
-
-        tempMap[nums[i]] = i 
+func isValid(s string) bool {
+	if len(s) == 0 {
+         return false 
     }
-    return resolution
+
+    stack := make([]rune,0)
+    for _, v := range s {
+        if v == '[' || v == '(' || v == '{' {
+            stack = append(stack, v)
+        } else if (v == ')' && len(stack) > 0 && stack[len(stack)-1] =='(') || 
+        (v == '}' && len(stack) > 0 && stack[len(stack)-1] =='{')  || 
+        (v == ']' && len(stack) > 0 && stack[len(stack)-1] =='[') { 
+            stack = stack[:len(stack)-1]
+        } else {
+            return false
+        }
+    } 
+ 
+    if len(stack) != 0 {
+        return false
+    }
+
+    return true
 }
