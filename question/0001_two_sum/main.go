@@ -45,13 +45,32 @@ func twoSum3(nums []int, target int) []int {
 	return nil
 }
 
+func twoSum4(nums []int, target int) []int {
+    tempMap := make(map[int]int)
+
+    var resolution []int
+    for i := range nums {
+        another := target - nums[i]
+ 
+        if _, exists := tempMap[another]; exists {
+            resolution = []int{tempMap[another], i}
+            break
+        } 
+
+        tempMap[nums[i]] = i 
+    }
+    return resolution
+}
+
 func main() {
 	nums := []int{3,2,4}
 	target := 6
 	result1 := twoSum(nums, target)
 	result2 := twoSum2(nums, target)
 	result3 := twoSum3(nums, target)
+	result4 := twoSum4(nums, target)
 	fmt.Println("result1=",result1)
 	fmt.Println("result2=",result2)
 	fmt.Println("result3=",result3)
+	fmt.Println("result4=",result4)
 }

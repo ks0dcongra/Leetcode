@@ -2,14 +2,12 @@ package main
 
 import "math"
 
-
-type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
-}
+// type TreeNode struct {
+//     Val int
+//     Left *TreeNode
+//     Right *TreeNode
+// }
  
-
 // 解法一，直接按照定义比较大小，比 root 节点小的都在左边，比 root 节点大的都在右边
 func isValidBST(root *TreeNode) bool {
 	return isValidbst(root, math.Inf(-1), math.Inf(1))

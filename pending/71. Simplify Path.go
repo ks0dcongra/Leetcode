@@ -6,11 +6,11 @@ import (
 	"strings"
 )
 
-func main() {
-	fmt.Println("Hello, 世界")
-	path := "/home//foo/"
-	fmt.Println(simplifyPath(path))
-}
+// func main() {
+// 	fmt.Println("Hello, 世界")
+// 	path := "/home//foo/"
+// 	fmt.Println(simplifyPath(path))
+// }
 
 // 解法一
 func simplifyPath(path string) string {
