@@ -1,4 +1,4 @@
-module github.com/halfrost/LeetCode-Go
+module leetcode
 
 go 1.19
 
