@@ -1,1 +1,3 @@
 go test -v ./leetcode/0020.Valid-Parentheses
+
+go test ./leetcode/0020.Valid-Parentheses
