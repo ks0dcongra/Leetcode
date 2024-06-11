@@ -1,5 +1,9 @@
 # [226. Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
 
+
+## Data Structure
+Tree
+
 ## 题目
 
 Invert a binary tree.
