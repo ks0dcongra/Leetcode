@@ -61,7 +61,6 @@ func Test_Problem235(t *testing.T) {
 	// 	rootThr := structures.Ints2TreeNode(p.thr)
 	// 	fmt.Printf("【output】:%v      \n", lowestCommonAncestor(rootOne, rootTwo, rootThr))
 	// }
-
 	for _, q := range qs {
 		t.Run(q.name235, func(t *testing.T) {
 			a, p := q.ans235, q.para235
