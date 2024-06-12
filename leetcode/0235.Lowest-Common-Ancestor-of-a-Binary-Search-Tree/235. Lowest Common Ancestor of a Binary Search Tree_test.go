@@ -69,8 +69,20 @@ func Test_Problem235(t *testing.T) {
 			rootOne := structures.Ints2TreeNode(p.one)
 			rootTwo := structures.Ints2TreeNode(p.two)
 			rootThr := structures.Ints2TreeNode(p.thr)
-			fmt.Printf("【output】:%v      \n", lowestCommonAncestor(rootOne, rootTwo, rootThr))
-			assert.Equal(t, a.one, structures.Tree2ints(lowestCommonAncestor(rootOne, rootTwo, rootThr)))
+			res := lowestCommonAncestor(rootOne, rootTwo, rootThr)
+			if len(a.one) > 0 {
+				expectedVal := a.one[0]
+				if res != nil {
+					fmt.Printf("【output】:%v      \n", res.Val)
+					assert.Equal(t, expectedVal, res.Val)
+				} else {
+					fmt.Printf("【output】:%v      \n", res)
+					assert.Fail(t, "Expected non-nil result")
+				}
+			} else {
+				fmt.Printf("【output】:%v      \n", res)
+				assert.Nil(t, res)
+			}
 		})
 	}
 	
